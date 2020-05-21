@@ -1,0 +1,23 @@
+{
+  "name": "typescript-data-structures-algorithms",
+  "author": "Kristof Schockaert <schockaertks@gmail.com> (https://schockaertks.com)",
+  "description": "TypeScript data structures and algorithms",
+  "version": "1.0.0",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "tsc": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/schockaertks/typescript-data-structures-algorithms.git"
+  },
+  "bugs": {
+    "url": "https://github.com/schockaertks/typescript-data-structures-algorithms/issues"
+  },
+  "homepage": "https://github.com/schockaertks/typescript-data-structures-algorithms",
+  "devDependencies": {
+    "prettier": "^2.0.5",
+    "typescript": "^3.9.3"
+  }
+}
