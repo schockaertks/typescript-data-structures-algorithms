@@ -50,7 +50,7 @@ export class LinkedList<T> {
     if (this.isEmpty()) {
       return undefined;
     } else if (this.size === 1) {
-      this.removeFirst();
+      return this.removeFirst();
     } else {
       let secondToLast = this.head!;
       while (secondToLast.next!.next != null) {
