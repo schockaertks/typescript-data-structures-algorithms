@@ -1,14 +1,14 @@
-export class LinkedListNode<T> {
+export class SinglyLinkedListNode<T> {
   value: T;
-  next: LinkedListNode<T> | null;
+  next: SinglyLinkedListNode<T> | null;
   constructor(value: T) {
     this.value = value;
     this.next = null;
   }
 }
 
-export class LinkedList<T> {
-  private head: LinkedListNode<T> | null;
+export class SinglyLinkedList<T> {
+  private head: SinglyLinkedListNode<T> | null;
   private size: number;
   constructor() {
     this.head = null;
@@ -16,18 +16,19 @@ export class LinkedList<T> {
   }
 
   addFirst(value: T) {
-    const newNode = new LinkedListNode(value);
+    const newNode = new SinglyLinkedListNode(value);
     newNode.next = this.head;
     this.head = newNode;
     this.size++;
   }
 
   addLast(value: T) {
+    const newNode = new SinglyLinkedListNode(value);
     if (this.isEmpty()) {
-      this.addFirst(value);
+      this.head = newNode;
+      this.size++;
       return;
     }
-    const newNode = new LinkedListNode(value);
     let last = this.head!;
     while (last.next != null) {
       last = last.next;
@@ -50,7 +51,10 @@ export class LinkedList<T> {
     if (this.isEmpty()) {
       return undefined;
     } else if (this.size === 1) {
-      return this.removeFirst();
+      const itemToRemove = this.head!;
+      this.head = null;
+      this.size--;
+      return itemToRemove.value;
     } else {
       let secondToLast = this.head!;
       while (secondToLast.next!.next != null) {
@@ -66,21 +70,19 @@ export class LinkedList<T> {
   peekFirst() {
     if (this.isEmpty()) {
       return undefined;
-    } else {
-      return this.head!.value;
     }
+    return this.head!.value;
   }
 
   peekLast() {
     if (this.isEmpty()) {
       return undefined;
-    } else {
-      let last = this.head!;
-      while (last.next != null) {
-        last = last.next;
-      }
-      return last.value;
     }
+    let last = this.head!;
+    while (last.next != null) {
+      last = last.next;
+    }
+    return last.value;
   }
 
   isEmpty() {
