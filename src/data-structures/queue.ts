@@ -19,4 +19,8 @@ export class Queue<T> {
   isEmpty() {
     return this.queue.length === 0;
   }
+
+  get length() {
+    return this.queue.length;
+  }
 }

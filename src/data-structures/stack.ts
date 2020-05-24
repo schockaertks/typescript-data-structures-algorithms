@@ -19,4 +19,8 @@ export class Stack<T> {
   isEmpty() {
     return this.stack.length === 0;
   }
+
+  get length() {
+    return this.stack.length;
+  }
 }
